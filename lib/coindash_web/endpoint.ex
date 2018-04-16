@@ -1,4 +1,4 @@
-defmodule CoindashWeb.Endpoint do
+wdefmodule CoindashWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :coindash
 
   socket "/socket", CoindashWeb.UserSocket

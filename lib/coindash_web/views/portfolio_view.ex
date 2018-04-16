@@ -12,6 +12,11 @@ defmodule CoindashWeb.PortfolioView do
 
   def render("portfolio.json", %{portfolio: portfolio}) do
     %{id: portfolio.id,
-      btc: portfolio.btc}
+      btc: portfolio.btc,
+      eth: portfolio.eth,
+      etc: portfolio.etc,
+      ltc: portfolio.ltc,
+      xrp: portfolio.xrp
+    }
   end
 end
