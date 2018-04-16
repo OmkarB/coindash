@@ -20,7 +20,14 @@ defmodule CoindashWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", CoindashWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", CoindashWeb do
+    pipe_through :api
+
+    resources "/users", UserController, except: [:new, :edit]
+    resources "/portfolios", PortfolioController, except: [:new, :edit]
+
+
+    post "/token", TokenController, :create
+
+  end
 end
