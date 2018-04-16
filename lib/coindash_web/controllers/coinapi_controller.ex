@@ -3,7 +3,7 @@ defmodule CoindashWeb.CoinapiController do
 
   def url, do: "https://min-api.cryptocompare.com/data/histohour?"
 
-  def get_data_by_asset(conn, %{"asset" => asset}) do
+  def get_prices_by_asset(conn, %{"asset" => asset}) do
 
   	query = "fsym=#{asset}&tsym=USD&limit=10"
   	uri = URI.encode(url() <> query)

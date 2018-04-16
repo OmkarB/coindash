@@ -29,5 +29,7 @@ defmodule CoindashWeb.Router do
 
     post "/token", TokenController, :create
 
+    get "/prices/:asset", CoinapiController, :get_prices_by_asset
+
   end
 end
