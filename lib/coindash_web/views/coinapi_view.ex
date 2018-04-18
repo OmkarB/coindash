@@ -3,11 +3,11 @@ defmodule CoindashWeb.CoinapiView do
   alias CoindashWeb.CoinapiView
 
   def render("index.json", %{prices: prices}) do
-    %{data: render_many(portfolios, CoinapiView, "coinapi.json")}
+    %{data: render_many(prices, CoinapiView, "coinapi.json")}
   end
 
   def render("show.json", %{price: price}) do
-    %{data: render_one(portfolio, CoinapiView, "coinapi.json")}
+    %{data: render_one(price, CoinapiView, "coinapi.json")}
   end
 
   def render("price.json", %{price: price}) do

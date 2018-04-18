@@ -2,6 +2,8 @@ defmodule Coindash.Users.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Coindash.Users.User
+
 
   schema "users" do
     field :name, :string
