@@ -12,18 +12,4 @@ defmodule CoindashWeb.CoinapiController do
   	render(conn, "index.json", prices: prices)
   end
 
-  # def get_prices(conn) do
-
-  #   query = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,ETC,LTC,BCH,XRP&tsyms=USD"
-	 #  uri = URI.encode(url() <> query)
-
-  # 	res = HTTPoison.get!(uri)
-  # 	data = Poison.decode!(res.body)
-
-  # 	price = data['Data']
-  # 	|> Poison.encode!()
-
-  # 	render(conn, "show.json", price: price)
-  # end
-
 end
