@@ -30,7 +30,7 @@ defmodule CoindashWeb.Router do
     post "/token", TokenController, :create
 
     get "/prices/:asset", CoinapiController, :get_histprices_by_asset
-    get "/currentprices/", CoinapiController, :get_prices
+    get "/currentprices/", CoinapiController, :get_prices!
 
   end
 end
