@@ -11,6 +11,14 @@ import 'rxjs/add/operator/debounceTime'
 import * as actions from './actions'
 import * as api from './api'
 
+const fetchCurrentPrices = (action$) => {
+  return action$
+    .ofType(actions.fetchCurrentPrices.toString())
+    .switchMap(() => {
+      return api.fetchCurrentPrices().map(actions.receiveCurrentPrices)
+    })
+}
+
 const fetchHistory = (action$) => {
   return action$
     .ofType(actions.selectTicker.toString())
@@ -20,4 +28,4 @@ const fetchHistory = (action$) => {
     })
 }
 
-export default combineEpics(fetchHistory)
+export default combineEpics(fetchHistory, fetchCurrentPrices)

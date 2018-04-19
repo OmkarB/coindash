@@ -7,3 +7,11 @@ export const fetchHistory = ticker => {
   })
   .map((data) => data.response.data)
 }
+
+export const fetchCurrentPrices = ticker => {
+  return createAjaxRoute({
+    url: `/api/v1/currentprices`,
+    method: 'GET',
+  })
+  .map((data) => data.response.data)
+}

@@ -18,30 +18,22 @@ const PORTFOLIO = {
   ETC: 0,
 }
 
-const PRICE = {
-  BTC: 8000,
-  ETH: 500,
-  LTC: 200,
-  XRP: 120,
-  BCH: 1000,
-  ETC: 200,
-}
-
-const Card = ({ selected, ticker, onClick }) => (
+const Card = ({ selected, ticker, onClick, price }) => (
   <div className={cx('ticker-card', { selected })} onClick={onClick}>
     <img alt="" src={TICKER[ticker].iconSrc}/>
     <div className="ticker-card-title">{PORTFOLIO[ticker]} {ticker}</div>
-    <div>${PORTFOLIO[ticker] * PRICE[ticker]}</div>
+    <div>${PORTFOLIO[ticker] * price}</div>
   </div>
 )
 
 class Home extends Component {
   componentWillMount() {
     this.props.actions.selectTicker('BTC')
+    this.props.actions.fetchCurrentPrices()
   }
 
   render() {
-    const { selectedTicker, actions, history } = this.props
+    const { currentPrices, selectedTicker, actions, history } = this.props
     return (
       <div>
         <XYPlot
@@ -79,6 +71,7 @@ class Home extends Component {
                       ticker={ticker}
                       selected={selectedTicker === ticker}
                       onClick={() => actions.selectTicker(ticker)}
+                      price={currentPrices[ticker]}
                     />
                   </div>
                 )
@@ -94,11 +87,13 @@ class Home extends Component {
 const mapStateToProps = state => ({
   selectedTicker: selectors.getSelectedTicker(state),
   history: selectors.getHistory(state),
+  currentPrices: selectors.getCurrentPrices(state),
 })
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     selectTicker: actions.selectTicker,
+    fetchCurrentPrices: actions.fetchCurrentPrices,
   }, dispatch),
 })
 

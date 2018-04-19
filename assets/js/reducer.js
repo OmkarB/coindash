@@ -11,4 +11,8 @@ const history = handleActions({
   [actions.receiveHistory]: (state, action) => action.payload,
 }, [])
 
-export default combineReducers({ selectedTicker, history })
+const currentPrices = handleActions({
+  [actions.receiveCurrentPrices]: (state, action) => action.payload,
+}, {})
+
+export default combineReducers({ selectedTicker, history, currentPrices })
