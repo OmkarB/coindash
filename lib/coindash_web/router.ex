@@ -13,12 +13,6 @@ defmodule CoindashWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", CoindashWeb do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-  end
-
   # Other scopes may use custom stacks.
   scope "/api/v1", CoindashWeb do
     pipe_through :api
@@ -33,4 +27,11 @@ defmodule CoindashWeb.Router do
     get "/currentprices", CurrentPriceController, :get_prices
 
   end
+
+  scope "/", CoindashWeb do
+    pipe_through :browser # Use the default browser stack
+
+    get "/", PageController, :index
+  end
+
 end

@@ -1,11 +1,15 @@
 body {
   font-family: 'Source Sans Pro';
   margin: 0;
+  height: 100vh;
 }
 
-.home {
+.price-graph {
+  margin: 40px auto;
+}
+
+.rest-page {
   background-color: #0c4ec5;
-  height: 100vh;
 }
 
 .total-portfolio-value {

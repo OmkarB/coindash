@@ -61,6 +61,9 @@ exports.config = {
     enabled: true,
     globals: {
       $: 'jquery'
+    },
+    styles: {
+      'react-vis': ['dist/style.css']
     }
   }
 };
