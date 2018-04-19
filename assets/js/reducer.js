@@ -7,4 +7,8 @@ const selectedTicker = handleActions({
   [actions.selectTicker]: (state, action) => action.payload,
 }, 'BTC')
 
-export default combineReducers({ selectedTicker })
+const history = handleActions({
+  [actions.receiveHistory]: (state, action) => action.payload,
+}, [])
+
+export default combineReducers({ selectedTicker, history })
