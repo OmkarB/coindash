@@ -1,1 +1,52 @@
-/* This file is for your main application css. */
+body {
+  font-family: 'Source Sans Pro';
+  margin: 0;
+}
+
+.home {
+  background-color: #0c4ec5;
+  height: 100vh;
+}
+
+.total-portfolio-value {
+  font-weight: 700;
+  font-size: 64px;
+  text-align: center;
+  color: white;
+}
+
+.ticker-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ticker-card-container {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+
+.ticker-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, .4);
+  padding: 30px;
+  width: 200px;
+  margin: 40px;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: white;
+  font-size: 16px;
+}
+
+.ticker-card img {
+  height: 50px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.ticker-card-title {
+  font-size: 24px;
+}
