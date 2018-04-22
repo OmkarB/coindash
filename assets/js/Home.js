@@ -32,6 +32,7 @@ class Home extends Component {
     this.toggleEdit = this.toggleEdit.bind(this)
     this.handleAmountChange = this.handleAmountChange.bind(this)
     this.handleSaveClick = this.handleSaveClick.bind(this)
+    this.handleCreateClick = this.handleCreateClick.bind(this)
   }
 
 
@@ -58,10 +59,14 @@ class Home extends Component {
     this.setState({ editing: false })
   }
 
+  handleCreateClick() {
+    this.forceUpdate()
+  }
+
   render() {
     const { portfolio, currentPrices, selectedTicker, actions, history } = this.props
     if (!Cookies.get('coindash_token')) {
-      return <Form/>
+      return <Form onCreateClick={this.handleCreateClick}/>
     }
     if (isEmpty(portfolio) || isEmpty(currentPrices)) return false
     return (
