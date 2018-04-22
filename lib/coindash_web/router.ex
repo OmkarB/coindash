@@ -20,7 +20,6 @@ defmodule CoindashWeb.Router do
     resources "/users", UserController, except: [:new, :edit]
     resources "/portfolios", PortfolioController, except: [:new, :edit]
 
-
     post "/token", TokenController, :create
 
     get "/prices/:asset", CoinapiController, :get_histprices_by_asset

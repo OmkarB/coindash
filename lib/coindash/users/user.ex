@@ -7,7 +7,6 @@ defmodule Coindash.Users.User do
 
   schema "users" do
     field :name, :string
-    field :email, :string
 
     field :password_hash, :string
     field :password, :string, virtual: true
@@ -18,11 +17,11 @@ defmodule Coindash.Users.User do
  @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:email, :name, :password, :password_confirmation])
+    |> cast(attrs, [:name, :password])
     |> validate_confirmation(:password)
     |> validate_password(:password)
     |> put_pass_hash()
-    |> validate_required([:email, :name, :password_hash])
+    |> validate_required([:name, :password_hash])
   end
 
   # Password validation

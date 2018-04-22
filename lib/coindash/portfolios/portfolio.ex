@@ -5,6 +5,11 @@ defmodule Coindash.Portfolios.Portfolio do
 
   schema "portfolios" do
     field :btc, :float
+    field :bch, :float
+    field :ltc, :float
+    field :xrp, :float
+    field :eth, :float
+    field :etc, :float
     field :user_id, :id
 
     timestamps()
@@ -13,7 +18,7 @@ defmodule Coindash.Portfolios.Portfolio do
   @doc false
   def changeset(portfolio, attrs) do
     portfolio
-    |> cast(attrs, [:btc])
-    |> validate_required([:btc])
+    |> cast(attrs, [:btc, :eth, :etc, :bch, :ltc, :xrp, :user_id])
+    |> validate_required([:btc, :eth, :etc, :bch, :ltc, :xrp, :user_id])
   end
 end
