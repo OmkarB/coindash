@@ -1,4 +1,6 @@
 import { combineEpics } from 'redux-observable'
+import Cookies from 'js-cookie'
+import { Observable } from 'rxjs'
 
 import 'rxjs/add/observable/of'
 import 'rxjs/add/observable/fromPromise'
@@ -46,4 +48,13 @@ const updatePortfolio = (action$, store) => {
     })
 }
 
-export default combineEpics(fetchHistory, fetchCurrentPrices, fetchPortfolio, updatePortfolio)
+const createUser = (action$) => {
+  return action$
+    .ofType(actions.createUser.toString())
+    .mergeMap(() => {
+      Cookies.set('coindash_token', '13')
+      return Observable.empty()
+    })
+}
+
+export default combineEpics(fetchHistory, fetchCurrentPrices, fetchPortfolio, updatePortfolio, createUser)

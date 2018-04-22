@@ -22,4 +22,12 @@ const portfolio = handleActions({
   },
 }, {})
 
-export default combineReducers({ selectedTicker, history, currentPrices, portfolio })
+const password = handleActions({
+  [actions.setPassword]: (state, action) => action.payload,
+}, '')
+
+const name = handleActions({
+  [actions.setName]: (state, action) => action.payload,
+}, '')
+
+export default combineReducers({ selectedTicker, history, currentPrices, portfolio, password, name })

@@ -5,10 +5,12 @@ import { bindActionCreators } from 'redux'
 import { isEmpty } from 'lodash'
 import { connect } from 'react-redux'
 import cx from 'classnames'
+import Cookies from 'js-cookie'
 
 import * as selectors from './selectors'
 import * as actions from './actions'
 import { TICKER } from './constants'
+import Form from './Form'
 
 const Card = ({ onAmountChange, editing, amount, selected, ticker, onClick, price }) => (
   <div className={cx('ticker-card', { selected })} onClick={onClick}>
@@ -58,6 +60,9 @@ class Home extends Component {
 
   render() {
     const { portfolio, currentPrices, selectedTicker, actions, history } = this.props
+    if (!Cookies.get('coindash_token')) {
+      return <Form/>
+    }
     if (isEmpty(portfolio) || isEmpty(currentPrices)) return false
     return (
       <div>
