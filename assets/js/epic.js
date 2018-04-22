@@ -28,4 +28,20 @@ const fetchHistory = (action$) => {
     })
 }
 
-export default combineEpics(fetchHistory, fetchCurrentPrices)
+const fetchPortfolio = (action$) => {
+  return action$
+    .ofType(actions.fetchPortfolio.toString())
+    .switchMap(() => {
+      return api.fetchPortfolio().map(actions.receivePortfolio)
+    })
+}
+
+const updatePortfolio = (action$) => {
+  return action$
+    .ofType(actions.updatePortfolio.toString())
+    .switchMap(() => {
+      return api.updatePortfolio(ticker).map(actions.receivePortfolio)
+    })
+}
+
+export default combineEpics(fetchHistory, fetchCurrentPrices, fetchPortfolio, updatePortfolio)

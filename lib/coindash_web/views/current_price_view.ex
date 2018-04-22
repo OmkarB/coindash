@@ -11,12 +11,11 @@ defmodule CoindashWeb.CurrentPriceView do
 
    def render("current_price.json", %{current_price: current_price}) do
    	%{
-   		XRP: current_price["XRP"]["USD"],
-   		ETH: current_price["ETH"]["USD"],
-   		ETC: current_price["ETC"]["USD"],
-   		BCH: current_price["BCH"]["USD"],
-   		LTC: current_price["LTC"]["USD"],
-   		BTC: current_price["BTC"]["USD"]
+   		xrp: current_price["XRP"]["USD"],
+   		eth: current_price["ETH"]["USD"],
+   		etc: current_price["ETC"]["USD"],
+   		ltc: current_price["LTC"]["USD"],
+   		btc: current_price["BTC"]["USD"]
    	}
    end
 end

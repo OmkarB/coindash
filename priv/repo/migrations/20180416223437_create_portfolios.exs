@@ -6,7 +6,6 @@ defmodule Coindash.Repo.Migrations.CreatePortfolios do
       add :btc, :float, null: false
       add :eth, :float, null: false
       add :etc, :float, null: false
-      add :bch, :float, null: false
       add :ltc, :float, null: false
       add :xrp, :float, null: false
 
