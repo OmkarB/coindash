@@ -17,6 +17,9 @@ const currentPrices = handleActions({
 
 const portfolio = handleActions({
   [actions.receivePortfolio]: (state, action) => action.payload,
+  [actions.setTickerAmount]: (state, action) => {
+    return Object.assign(state, { [action.payload.ticker]: parseInt(action.payload.amount) }, {})
+  },
 }, {})
 
 export default combineReducers({ selectedTicker, history, currentPrices, portfolio })

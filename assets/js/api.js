@@ -26,7 +26,7 @@ export const fetchPortfolio = id => {
 
 export const updatePortfolio = portfolio => {
   return createAjaxRoute({
-    url: `/api/v1/currentprices/7`,
+    url: `/api/v1/portfolios/7`,
     method: 'PATCH',
     body: JSON.stringify({
       portfolio,

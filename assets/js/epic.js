@@ -9,6 +9,7 @@ import 'rxjs/add/operator/switchMap'
 import 'rxjs/add/operator/debounceTime'
 
 import * as actions from './actions'
+import * as selectors from './selectors'
 import * as api from './api'
 
 const fetchCurrentPrices = (action$) => {
@@ -36,11 +37,12 @@ const fetchPortfolio = (action$) => {
     })
 }
 
-const updatePortfolio = (action$) => {
+const updatePortfolio = (action$, store) => {
   return action$
     .ofType(actions.updatePortfolio.toString())
     .switchMap(() => {
-      return api.updatePortfolio(ticker).map(actions.receivePortfolio)
+      const portfolio = selectors.getPortfolio(store.getState())
+      return api.updatePortfolio(portfolio).map(actions.receivePortfolio)
     })
 }
 
